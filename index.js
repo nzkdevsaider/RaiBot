@@ -45,10 +45,7 @@ let nxtLvl = xp[message.author.tag].level * 500;
 
 if (nxtLvl <= xp[message.author.tag].xp) {
   xp[message.author.tag].level = curLvl + 1;
-  const lvlEmbed = new MessageEmbed()
-  .setTitle(`Congrats, ${message.author.tag}! You are now level ${curLvl + 1}.`)
-  .setColor(colours.lime)
-  message.channel.send(lvlEmbed)
+  message.channel.send(`Congrats, ${message.author.tag}! You are now level ${curLvl + 1}.`)
 }
 writeFile('./xp.json', JSON.stringify(xp), (err) => {
   if(err) console.log(err)
@@ -74,10 +71,7 @@ if (!message.author.bot) {
     writeFile('./coins.json', JSON.stringify(coins), (err) => {
       if(err) console.log(err)
     });
-    const coinEmbed = new MessageEmbed()
-    .setTitle(`Congrats, ${message.author.tag}! ${coinAmt} coins were added to your account.`)
-    .setColor(colours.yellow)
-    message.channel.send(coinEmbed)
+    message.channel.send(`Congrats, ${message.author}! ${coinAmt} coins were added to your account.`)
   }
 }
 }});

@@ -27,16 +27,7 @@ run: async (client, message, args) => {
     let nxtLvlXp = curLvl * 500;
     let difference = nxtLvlXp - curXp;
 
-    const embed = new MessageEmbed()
-    .setColor(colours.default)
-    .setTitle(`${message.author.username}'s level`)
-    .addField('Level', curLvl, true)
-    .addField('XP', curXp, true)
-    .addField('XP til level up', difference)
-    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
-    .setTimestamp()
-
-message.channel.send(embed);
+message.reply(`You are level **${curLvl}** *(${curXp} XP)* and you need **${difference} XP** til next level up.`)
 
 }
 }

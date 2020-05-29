@@ -9,7 +9,8 @@ module.exports = {
     description: 'Displays current queue',
     usage: `${prefix}queue`,
     category: 'music',
-    access: 'everyone'
+    access: 'everyone',
+    aliases: ['q']
 },
 
 run: async (client, message, args) => {

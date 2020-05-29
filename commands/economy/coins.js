@@ -6,10 +6,11 @@ const coins = require('../../coins.json');
 module.exports = {
     config: {
     name: 'coins',
-    description: 'Displays your wallet',
+    description: 'Displays how much coins you have',
     usage: `${prefix}coins`,
     category: 'economy',
     access: 'everyone',
+    aliasees: ['balance', 'bal']
 },
 
 run: async (client, message, args) => {
@@ -22,14 +23,7 @@ run: async (client, message, args) => {
 
     let uCoins = coins[message.author.tag].coins;
 
-    const embed = new MessageEmbed()
-    .setColor(colours.default)
-    .setTitle(`${message.author.username}'s wallet`)
-    .addField('Coins', uCoins)
-    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
-    .setTimestamp()
-
-message.channel.send(embed);
+message.reply(`You have **${uCoins}** coins.`)
 
 }
 }

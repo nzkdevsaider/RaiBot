@@ -7,8 +7,8 @@ const { writeFile } = require('fs');
 module.exports = {
     config: {
     name: 'pay',
-    description: 'Pays user some coins',
-    usage: `${prefix}pay <user> <coins>`,
+    description: 'Gives user coins',
+    usage: `${prefix}pay <user> <amount>`,
     category: 'economy',
     access: 'everyone',
 },

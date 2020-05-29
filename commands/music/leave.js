@@ -9,7 +9,8 @@ module.exports = {
     description: 'Makes the bot leave the voice channel',
     usage: `${prefix}leave`,
     category: 'music',
-    access: 'everyone'
+    access: 'everyone',
+    aliases: ['stop']
 },
 
 run: async (client, message, args) => {
