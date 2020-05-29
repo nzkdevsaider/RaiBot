@@ -24,7 +24,7 @@ run: async (client, message, args) => {
 
     let curXp = xp[message.author.tag].xp;
     let curLvl = xp[message.author.tag].level;
-    let nxtLvlXp = curLvl * 300;
+    let nxtLvlXp = curLvl * 500;
     let difference = nxtLvlXp - curXp;
 
     const embed = new MessageEmbed()

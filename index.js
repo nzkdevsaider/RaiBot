@@ -29,7 +29,7 @@ console.log(`[${moment().format('LT')}] ${message.author.tag} | ${message.guild.
 
 if (!message.author.bot) {
 
-let xpAdd = Math.floor(Math.random() * 7) + 8;
+let xpAdd = Math.floor(Math.random() * 5) + 10;
 
 if (!xp[message.author.tag]) {
   xp[message.author.tag] = {
@@ -41,7 +41,7 @@ if (!xp[message.author.tag]) {
 xp[message.author.tag].xp = xp[message.author.tag].xp + xpAdd;
 let curXp = xp[message.author.tag].xp;
 let curLvl = xp[message.author.tag].level;
-let nxtLvl = xp[message.author.tag].level * 300;
+let nxtLvl = xp[message.author.tag].level * 500;
 
 if (nxtLvl <= xp[message.author.tag].xp) {
   xp[message.author.tag].level = curLvl + 1;
