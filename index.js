@@ -45,7 +45,7 @@ let nxtLvl = xp[message.author.tag].level * 500;
 
 if (nxtLvl <= xp[message.author.tag].xp) {
   xp[message.author.tag].level = curLvl + 1;
-  message.channel.send(`Congrats, ${message.author.tag}! You are now level ${curLvl + 1}.`)
+  message.channel.send(`Congrats, ${message.author.tag}! You are now level **${curLvl + 1}**.`)
 }
 writeFile('./xp.json', JSON.stringify(xp), (err) => {
   if(err) console.log(err)
@@ -71,7 +71,7 @@ if (!message.author.bot) {
     writeFile('./coins.json', JSON.stringify(coins), (err) => {
       if(err) console.log(err)
     });
-    message.channel.send(`Congrats, ${message.author}! ${coinAmt} coins were added to your account.`)
+    message.channel.send(`Congrats, ${message.author}! **${coinAmt}** coins were added to your account.`)
   }
 }
 }});
