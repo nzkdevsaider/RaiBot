@@ -29,7 +29,7 @@ console.log(`[${moment().format('LT')}] ${message.author.tag} | ${message.guild.
 
 if (!message.author.bot) {
 
-let xpAdd = Math.floor(Math.random() * 5) + 10;
+let xpAdd = Math.floor(Math.random() * 6) + 9;
 
 if (!xp[message.author.tag]) {
   xp[message.author.tag] = {
