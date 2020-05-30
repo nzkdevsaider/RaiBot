@@ -54,7 +54,7 @@ run: async (client, message, args) => {
             message.member.roles.add(vipRole);
             message.channel.send(`${message.author} bought **VIP Role** for **5** coins.`);
             coins[message.author.tag] = {
-                coins: uCoins - 5
+                coins: uCoins - 250
             };
             writeFile('./coins.json', JSON.stringify(coins), (err) => {
                 if(err) console.log(err)
@@ -74,7 +74,7 @@ run: async (client, message, args) => {
             message.member.roles.add(vip2Role);
             message.channel.send(`${message.author} bought **VIP+ Role** for **10** coins.`);
             coins[message.author.tag] = {
-                coins: uCoins - 10
+                coins: uCoins - 500
             };
             writeFile('./coins.json', JSON.stringify(coins), (err) => {
                 if(err) console.log(err)
