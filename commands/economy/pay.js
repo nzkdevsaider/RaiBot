@@ -40,7 +40,7 @@ run: async (client, message, args) => {
         coins: pCoins + parseInt(args[1])
     };
 
-message.channel.send(`${message.author} has given ${pUser} ${args[1]} coins.`);
+message.channel.send(`${message.author} has given ${pUser} **${args[1]}** coins.`);
 
 writeFile('./coins.json', JSON.stringify(coins), (err) => {
     if(err) console.log(err)
