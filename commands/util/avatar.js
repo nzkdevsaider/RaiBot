@@ -25,7 +25,7 @@ run: async (client, message, args) => {
     return message.channel.send(myEmbed);
     }
 
-    let user = message.mentions.users.first();	
+    let user = message.mentions.users.first();
 
     const embed = new MessageEmbed()
     .setColor(colours.default)
