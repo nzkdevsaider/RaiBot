@@ -13,7 +13,7 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    if (!args.join(' ')) return message.channel.send('Please provide question!');
+    if (!args.join(' ')) return message.reply('Please input a question!')
 
     const embed = new MessageEmbed()
     .setColor(colours.magenta)

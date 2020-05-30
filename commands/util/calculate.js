@@ -16,13 +16,13 @@ module.exports = {
 run: async (client, message, args) => {
 
     let calculation = args[0]
-    if (!calculation) return message.reply('Please input a valid mathematical operation.');
+    if (!calculation) return message.reply('Please input a mathematical operation!');
 
     let resp;
     try {
         resp = math.evaluate(args.join(' '));
     } catch (e) {
-        return message.reply('Please input a valid mathematical operation.');
+        return message.reply('Please input a valid mathematical operation!');
     }
 
     const embed = new MessageEmbed()

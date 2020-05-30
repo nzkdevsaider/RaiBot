@@ -23,7 +23,7 @@ run: async (client, message, args) => {
     const member = message.mentions.members.first() || message.guild.members.cache.get(args[0])
     if (!member) return message.reply('Please provide an user!')
     if (member.id === message.author.id) return message.reply('You can\'t kick yourself!')
-    if (member.id === ownerId) return message.reply('Can\'t do that, sorry!')
+    if (member.id === ownerId) return message.reply('I can\'t do that, sorry!')
 
     const reason = args[1] || "No reason provided"
 

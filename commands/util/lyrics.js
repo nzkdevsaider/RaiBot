@@ -7,14 +7,14 @@ module.exports = {
     config: {
     name: 'lyrics',
     description: 'Displays song\'s lyrics',
-    usage: `${prefix}lyrics <input>`,
+    usage: `${prefix}lyrics <song>`,
     category: 'util',
     access: 'everyone'
 },
 
 run: async (client, message, args) => {
 
-    if (!args) message.reply('Please input something!')
+    if (!args) message.reply('Please input a song!')
 
     fetch(`https://some-random-api.ml/lyrics?title=${args.join('-')}`)
     .then(res => res.json())

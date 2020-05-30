@@ -17,11 +17,11 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    if (!args[0]) return message.reply('Please provide nickname!');
+    if (!args[0]) return message.reply('Please provide a nickname!');
     const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${steamToken}&vanityurl=${args}`
 
     fetch(url).then(res => res.json()).then(body => {
-        if (body.response.success === 42) return message.channel.send('I was unable to find a steam profile with that nickname')
+        if (body.response.success === 42) return message.reply('I couldn\'t find that account!')
 
         const id = body.response.steamid;
         const summaries = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamToken}&steamids=${id}`
@@ -29,11 +29,11 @@ run: async (client, message, args) => {
         const state = ['Offline', 'Online', 'Busy', 'Away', 'Snooze', 'Looking to trade', 'Looking to play']
 
     fetch(summaries).then(res => res.json()).then(body => {
-        if (!body.response) return message.channel.send('I was unable to find a steam profile with that nickname')
+        if (!body.response) return message.reply('I couldn\'t find that account!')
         const { personaname, avatarfull, realname, personastate, loccountrycode, profileurl, timecreated } = body.response.players[0]
 
     fetch(bans).then(res => res.json()).then(body => {
-        if (!body.players) return message.channel.send('I was unable to find a steam profile with that nickname')
+        if (!body.players) return message.reply('I couldn\'t find that account!')
         const { NumberOfVACBans, NumberOfGameBans } = body.players[0]
 
         const embed = new MessageEmbed()

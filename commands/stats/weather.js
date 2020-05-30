@@ -15,13 +15,13 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    if (!args[0]) return message.reply('Please provide valid location!')
+    if (!args[0]) return message.reply('Please provide a valid location!')
 
     if (args[1] === 'C' || args[1] === 'F') {
 
     weather.find({search: args.slice(0).join(' '), degreeType: args[1]}, function(err, result) {
-        if (!args[0]) return message.reply('Please provide valid location!')
-        if (result === undefined || result.length === 0) return message.reply('Please provide valid location!')
+        if (!args[0]) return message.reply('Please provide a valid location!')
+        if (result === undefined || result.length === 0) return message.reply('Please provide a valid location!')
 
         let current = result[0].current;
         let location = result[0].location;
@@ -53,7 +53,7 @@ run: async (client, message, args) => {
 message.channel.send(embed).catch(e => message.reply(`Error: ${e.message}`))
 });
     } else {
-        return message.reply('Please provide valid degree type: `C` | `F`')
+        return message.reply('Please provide a valid degree type: `C` | `F`')
     }
 
 }

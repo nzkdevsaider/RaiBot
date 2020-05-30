@@ -15,7 +15,7 @@ module.exports = {
 run: async (client, message, args) => {
 
     let ticket = args.slice(0).join(' ');
-    if (!ticket) return message.reply('Please provide a text!')
+    if (!ticket) return message.reply('Please input a text!')
 
     message.delete()
 

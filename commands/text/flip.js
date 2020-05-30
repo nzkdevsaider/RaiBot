@@ -17,7 +17,7 @@ run: async (client, message, args) => {
     message.delete()
 
     let textToFlip = args.slice(0).join(' ')
-    if (!textToFlip) return message.reply('You need to input a text to flip!')
+    if (!textToFlip) return message.reply('Please input a text to flip!')
 
     let flippedText = flip(textToFlip)
     if (flippedText.length > 2000) return message.reply('Your text is too long!')

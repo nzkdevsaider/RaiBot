@@ -40,7 +40,7 @@ run: async (client, message, args) => {
     if (platform === 'XBL') player = player.replace('_', ' ');
 
     player = await getId(platform, player);
-    if (!player.length) return message.reply('I couldn\'t fetch results for that nickname!');
+    if (!player.length) return message.reply('I couldn\'t find that account!')
     player = player[0]
 
     const playerRank = await getRank(platform, player.id)

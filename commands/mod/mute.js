@@ -23,7 +23,7 @@ run: async (client, message, args) => {
     const member = message.mentions.members.first() || message.guild.members.cache.get(args[0])
     if (!member) return message.reply('Please provide an user!')
     if (member.id === message.author.id) return message.reply('You can\'t mute yourself!')
-    if (member.id === ownerId) return message.reply('Can\'t do that, sorry!')
+    if (member.id === ownerId) return message.reply('I can\'t do that, sorry!')
 
     if (!args[1]) return message.reply('Please provide a time! \n\`10s\` = 10 seconds, \n\`10m\` = 10 minutes, \n\`10h\` = 10 hours, \n\`10d\` = 10 days');
 

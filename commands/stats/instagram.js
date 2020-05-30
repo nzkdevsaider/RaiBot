@@ -16,7 +16,7 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    if (!args[0]) return message.reply('Please provide a valid username!')
+    if (!args[0]) return message.reply('Please provide a username!')
 
     const url = `https://instagram.com/${args[0]}/?__a=1`
         
@@ -26,7 +26,6 @@ run: async (client, message, args) => {
         res = await fetch(url).then(url => url.json())
     } catch (e) {
         return message.reply('I couldn\'t find that account!')
-            .then(m => m.delete(5000));
     }
 
     const account = res.graphql.user

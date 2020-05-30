@@ -15,7 +15,7 @@ module.exports = {
 run: async (client, message, args) => {
 
     let question = args.slice(0).join(' ')
-    if (!question) return message.reply('You need to input a question!')
+    if (!question) return message.reply('Please input a question!')
 
     let replies = [
         'It is certain.', 'Without a doubt.', 'Yes - definitely.', 'As I see it, yes.', 'Most likely.', 'Yes.', 'Signs point to yes.', 'Ask again later.', 'Hell no.', 'No.', 'My reply is no.',

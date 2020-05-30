@@ -19,7 +19,7 @@ run: async (client, message, args) => {
     message.delete()
 
     let textToOwO = args.slice(0).join(' ')
-    if (!textToOwO) return message.reply('You need to input a text to OwOify!')
+    if (!textToOwO) return message.reply('Please input a text to OwOify!')
 
     let owo = await neko.sfw.OwOify({text: textToOwO});
     if (owo.length > 2000) return message.reply('Your text is too long!')

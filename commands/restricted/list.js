@@ -15,7 +15,7 @@ run: async (client, message, args) => {
 
     if (message.author.id != ownerId) return message.reply('You don\'t have permission to use this command.')
     
-    let list = client.guilds.cache.map(guild => `${guild.name} (${guild.id}) (${guild.memberCount}m)`).join('\n')
+    let list = client.guilds.cache.map(guild => `${guild.name} (${guild.id}) (${guild.memberCount} members)`).join('\n')
     
     let embed = new MessageEmbed()
     .setAuthor(`${client.user.username} Server List`, client.user.displayAvatarURL())

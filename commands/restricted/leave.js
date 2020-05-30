@@ -17,7 +17,7 @@ run: async (client, message, args) => {
 
     let guildId = args[0]
 
-    if (!guildId) return message.reply('Please provide guild ID!');
+    if (!guildId) return message.reply('Please provide a guild ID!');
     message.delete()
     client.guilds.cache.get(guildId).leave()
 
