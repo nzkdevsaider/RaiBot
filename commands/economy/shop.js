@@ -52,7 +52,7 @@ run: async (client, message, args) => {
             let uCoins = coins[message.author.tag].coins;
 
             message.member.roles.add(vipRole);
-            message.channel.send(`${message.author} bought **VIP Role** for **5** coins.`);
+            message.channel.send(`${message.author} bought **VIP Role** for **250** coins.`);
             coins[message.author.tag] = {
                 coins: uCoins - 250
             };
@@ -72,7 +72,7 @@ run: async (client, message, args) => {
             let uCoins = coins[message.author.tag].coins;
 
             message.member.roles.add(vip2Role);
-            message.channel.send(`${message.author} bought **VIP+ Role** for **10** coins.`);
+            message.channel.send(`${message.author} bought **VIP+ Role** for **500** coins.`);
             coins[message.author.tag] = {
                 coins: uCoins - 500
             };
