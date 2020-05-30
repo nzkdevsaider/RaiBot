@@ -112,33 +112,6 @@ defaultChannel.send(imEmbed)
   }
 })
 
-// Join-Leave Chat
-
-client.on('guildMemberAdd', member => {
-  let joinedReplies = [`Where's **${member.user.tag}**? In the server!`, `We've been expecting you, **${member.user.tag}**`,`**${member.user.tag}** just showed up. Hold my beer.`,
-  `**${member.user.tag}** just joined. Can I get a heal?`, `Welcome, **${member.user.tag}**. Stay awhile and listen.`
-];
-  let joinedResponse = joinedReplies[Math.floor(Math.random() * joinedReplies.length)];
-  const channel = member.guild.channels.cache.find(ch => ch.name === 'join-leave');
-  if (!channel) return;
-  const joinedEmbed = new MessageEmbed()
-    .setColor(colours.green)
-    .setDescription(joinedResponse)
-  channel.send(joinedEmbed);
-});
-client.on('guildMemberRemove', member => {
-  let leftReplies = [`**${member.user.tag}** has quit. Party's over.`, `Whoopsies! **${member.user.tag}** left us.`, `Commander, we've lost **${member.user.tag}**!`,
-  `Oh no. **${member.user.tag}** left.`, `Nooooooo, **${member.user.tag}** closed the door.`
-];
-  let leftResponse = leftReplies[Math.floor(Math.random() * leftReplies.length)];
-  const channel = member.guild.channels.cache.find(ch => ch.name === 'join-leave');
-  if (!channel) return;
-  const leftEmbed = new MessageEmbed()
-    .setColor(colours.red)
-    .setDescription(leftResponse)
-  channel.send(leftEmbed);
-});
-
 // Setup
 
 client.on('message', message => {
@@ -147,7 +120,6 @@ client.on('message', message => {
     if (!message.member.hasPermission('MANAGE_CHANNELS', 'ADMINISTRATOR') || !message.guild.owner) return message.channel.send('You do not have permission to use this command.');
     if (!message.guild.me.hasPermission(['MANAGE_CHANNELS', 'ADMINISTRATOR'])) return message.channel.send('I do not have permission to create channels!')
 
-    const jlChannel = message.guild.channels.cache.find(ch => ch.name === 'join-leave');
     const mlChannel = message.guild.channels.cache.find(ch => ch.name === 'mod-logs');
     const fgChannel = message.guild.channels.cache.find(ch => ch.name === 'free-games');
 
@@ -167,16 +139,8 @@ client.on('message', message => {
 
     let ping = m.createdTimestamp - message.createdTimestamp
 
-    if (!jlChannel || !mlChannel || !fgChannel) {
+    if (!mlChannel || !fgChannel) {
 
-        message.guild.channels.create('join-leave', { type: 'text',
-        permissionOverwrites: [
-            {
-                id: message.channel.guild.roles.everyone,
-                deny: ['SEND_MESSAGES', 'ADD_REACTIONS', 'SEND_TTS_MESSAGES', 'ATTACH_FILES'],
-            },
-        ],
-    });
             message.guild.channels.create('mod-logs', { type: 'text',
         permissionOverwrites: [
             {
@@ -197,7 +161,6 @@ client.on('message', message => {
 m.edit(`Setup completed in **${ping}ms**`)
 
 } else {
-    jlChannel.delete();
     mlChannel.delete();
     fgChannel.delete();
 
