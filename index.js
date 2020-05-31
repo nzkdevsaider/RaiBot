@@ -5,8 +5,7 @@ const moment = require('moment');
 const colours = require('./colours.json');
 const { writeFile } = require('fs');
 const { stripIndents } = require('common-tags');
-const xp = require('./xp.json');
-const coins = require('./coins.json');
+const db = require('quick.db');
 
 // Login
 
@@ -29,52 +28,36 @@ console.log(`[${moment().format('LT')}] ${message.author.tag} | ${message.guild.
 
 if (!message.author.bot) {
 
-let xpAdd = Math.floor(Math.random() * 6) + 9;
-
-if (!xp[message.author.tag]) {
-  xp[message.author.tag] = {
-    xp: 0,
-    level: 1,
-  };
+  let xpAdd = Math.floor(Math.random() * 8) + 10;
+  
+  db.add(`xp_${message.author.id}`, xpAdd)
+  let curXp =  db.fetch(`xp_${message.author.id}`)
+  let curLvl = db.fetch(`level_${message.author.id}`)
+  let nxtLvl = db.fetch(`level_${message.author.id}`) * 500;
+  
+  if (nxtLvl <= db.fetch(`xp_${message.author.id}`)) {
+    db.add(`level_${message.author.id}`, 1)
+    const lvlEmbed = new MessageEmbed()
+    .setTitle(`Congrats, ${message.author.username}! You are now level ${curLvl + 1}.`)
+    .setColor(colours.lime)
+    message.channel.send(lvlEmbed)
+  }
 }
-
-xp[message.author.tag].xp = xp[message.author.tag].xp + xpAdd;
-let curXp = xp[message.author.tag].xp;
-let curLvl = xp[message.author.tag].level;
-let nxtLvl = xp[message.author.tag].level * 500;
-
-if (nxtLvl <= xp[message.author.tag].xp) {
-  xp[message.author.tag].level = curLvl + 1;
-  message.channel.send(`Congrats, ${message.author.tag}! You are now level **${curLvl + 1}**.`)
-}
-writeFile('./xp.json', JSON.stringify(xp), (err) => {
-  if(err) console.log(err)
-})
 
 // Coin System
 
 if (!message.author.bot) {
 
-  if (!coins[message.author.tag]) {
-    coins[message.author.tag] = {
-      coins: 0,
-    };
-  }
-
   let coinAmt = Math.floor(Math.random() * 15) + 1;
   let baseAmt = Math.floor(Math.random() * 15) + 1;
 
   if (coinAmt === baseAmt) {
-    coins[message.author.tag] = {
-      coins: coins[message.author.tag].coins + coinAmt
+    db.add(`coins_${message.author.id}`, coinAmt)
+    message.channel.send(`Congrats, ${message.author}! ${coinAmt} coins were added to your balance.`)
     };
-    writeFile('./coins.json', JSON.stringify(coins), (err) => {
-      if(err) console.log(err)
-    });
-    message.channel.send(`Congrats, ${message.author}! **${coinAmt}** coins were added to your account.`)
   }
-}
-}});
+});
+
 
 // Invite Message
 

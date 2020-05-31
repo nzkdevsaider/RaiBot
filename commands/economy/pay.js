@@ -1,50 +1,37 @@
 const { prefix } = require('../../botconfig.json');
 const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
-const coins = require('../../coins.json');
-const { writeFile } = require('fs');
+const db = require('quick.db');
 
 module.exports = {
     config: {
     name: 'pay',
-    description: 'Gives user coins',
+    description: 'Allows you to make a payment',
     usage: `${prefix}pay <user> <amount>`,
     category: 'economy',
     access: 'everyone',
 },
 
 run: async (client, message, args) => {
+    
+    let coins = await db.fetch(`coins_${message.author.id}`)
 
-    if (!coins[message.author.tag]) {
-        return message.reply('You don\'t have any coins!')
-    }
+    if (!coins) return message.reply('You don\'t have any coins!')
 
-    let pUser = message.mentions.users.first();	
+    let pUser = message.mentions.users.first();
+    if (!message.mentions.users.first()) return message.reply('Please provide an user!')
 
-    if (!coins[pUser.tag]) {
-        coins[pUser.tag] = {
-            coins: 0
-        };
-    }
+    if (!args[1]) return message.reply('Please provide an amount of coins!')
 
-    let pCoins = coins[pUser.tag].coins;
-    let sCoins = coins[message.author.tag].coins;
+    let pCoins = db.fetch(`coins_${pUser.id}`)
+    let sCoins = db.fetch(`coins_${message.author.id}`)
 
     if (sCoins < args[0]) return message.reply('Not enough coins there!')
 
-    coins[message.author.tag] = {
-        coins: sCoins - parseInt(args[1])
-    };
-
-    coins[pUser.tag] = {
-        coins: pCoins + parseInt(args[1])
-    };
+    db.subtract(`coins_${message.author.id}`, args[1])
+    db.add(`coins_${pUser.id}`, args[1])
 
 message.channel.send(`${message.author} has given ${pUser} **${args[1]}** coins.`);
-
-writeFile('./coins.json', JSON.stringify(coins), (err) => {
-    if(err) console.log(err)
-  });
 
 }
 }

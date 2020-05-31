@@ -1,8 +1,7 @@
 const { prefix, ownerId } = require('../../botconfig.json');
 const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
-const coins = require('../../coins.json');
-const { writeFile } = require('fs');
+const db = require('quick.db');
 const { stripIndents } = require('common-tags');
 
 module.exports = {
@@ -25,8 +24,8 @@ run: async (client, message, args) => {
     .setAuthor(`${server.name} Shop`, server.iconURL())
     .setColor(colours.default)
     .addField('Shop Selection', stripIndents`
-    **1.** [**250** C] 💛 VIP Role
-    **2.** [**500** C] 🧡 VIP+ Role
+    **1.** [**500** C] 💛 VIP Role
+    **2.** [**1000** C] 🧡 VIP+ Role
     `)
     .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
     .setTimestamp()
@@ -45,42 +44,22 @@ run: async (client, message, args) => {
 
 		if (reaction.emoji.name === '💛') {
 
-            if (!coins[message.author.tag]) {
-                return message.reply('You don\'t have any coins!')
-            }
-
-            let uCoins = coins[message.author.tag].coins;
+            db.subtract(`coins_${message.author.id}`, 500)
 
             message.member.roles.add(vipRole);
-            message.channel.send(`${message.author} bought **VIP Role** for **250** coins.`);
-            coins[message.author.tag] = {
-                coins: uCoins - 250
-            };
-            writeFile('./coins.json', JSON.stringify(coins), (err) => {
-                if(err) console.log(err)
-              })
-              message.delete()
-              sentEmbed.delete()
+            message.channel.send(`${message.author} bought **VIP Role** for **500** coins.`);
+            message.delete()
+            sentEmbed.delete()
         };
         
 		if (reaction.emoji.name === '🧡') {
 
-            if (!coins[message.author.tag]) {
-                return message.reply('You don\'t have any coins!')
-            }
-
-            let uCoins = coins[message.author.tag].coins;
+            db.subtract(`coins_${message.author.id}`, 1000)
 
             message.member.roles.add(vip2Role);
-            message.channel.send(`${message.author} bought **VIP+ Role** for **500** coins.`);
-            coins[message.author.tag] = {
-                coins: uCoins - 500
-            };
-            writeFile('./coins.json', JSON.stringify(coins), (err) => {
-                if(err) console.log(err)
-              })
-              message.delete()
-              sentEmbed.delete()
+            message.channel.send(`${message.author} bought **VIP+ Role** for **1000** coins.`);
+            message.delete()
+            sentEmbed.delete()
         };
     }).catch(collected => {
 	message.reply('Canceled selection.');

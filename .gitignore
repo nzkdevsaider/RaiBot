@@ -11,4 +11,5 @@ launch.bat
 package-lock.json
 lavalink
 logs
+json.sqlite
 node_modules

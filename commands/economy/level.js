@@ -1,7 +1,7 @@
 const { prefix } = require('../../botconfig.json');
 const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
-const xp = require('../../xp.json');
+const db = require('quick.db');
 
 module.exports = {
     config: {
@@ -15,17 +15,12 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    if (!xp[message.author.tag]) {
-        xp[message.author.tag] = {
-            xp: 0,
-            level: 1
-        };
-    }
-
-    let curXp = xp[message.author.tag].xp;
-    let curLvl = xp[message.author.tag].level;
+    let curXp =  db.fetch(`xp_${message.author.id}`);
+    let curLvl = db.fetch(`level_${message.author.id}`);
     let nxtLvlXp = curLvl * 500;
     let difference = nxtLvlXp - curXp;
+
+    if (curLvl === null) curLvl = 0;
 
 message.reply(`You are level **${curLvl}** *(${curXp} XP)* and you need **${difference} XP** til next level up.`)
 

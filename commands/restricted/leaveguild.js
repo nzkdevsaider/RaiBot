@@ -4,11 +4,12 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     config: {
-    name: 'gleave',
+    name: 'leaveguild',
     description: 'Makes the bot leave server',
-    usage: `${prefix}gleave <server-id>`,
+    usage: `${prefix}leaveguild <server-id>`,
     category: 'restricted',
-    access: 'restricted'
+    access: 'restricted',
+    aliases: ['lg']
 },
 
 run: async (client, message, args) => {
