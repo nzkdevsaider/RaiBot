@@ -20,6 +20,11 @@ client.login(token);
 
 client.on('message', message => {
 
+// Message Counter
+
+db.add(`globalMessages_${message.author.id}`, 1)
+db.add(`guildMessages_${message.guild.id}_${message.author.id}`, 1)
+
 // Message Listener
 
 console.log(`[${moment().format('LT')}] ${message.author.tag} | ${message.guild.name} ~ ${message.content}`)
@@ -48,8 +53,8 @@ if (!message.author.bot) {
 
 if (!message.author.bot) {
 
-  let coinAmt = Math.floor(Math.random() * 15) + 1;
-  let baseAmt = Math.floor(Math.random() * 15) + 1;
+  let coinAmt = Math.floor(Math.random() * 30) + 1;
+  let baseAmt = Math.floor(Math.random() * 30) + 1;
 
   if (coinAmt === baseAmt) {
     db.add(`coins_${message.author.id}`, coinAmt)
@@ -57,7 +62,6 @@ if (!message.author.bot) {
     };
   }
 });
-
 
 // Invite Message
 

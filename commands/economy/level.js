@@ -15,14 +15,16 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    let curXp =  db.fetch(`xp_${message.author.id}`);
-    let curLvl = db.fetch(`level_${message.author.id}`);
+    let user = message.mentions.users.first() || client.users.cache.find(user => user.username === args[0]) || message.author;
+
+    let curXp =  db.fetch(`xp_${user.id}`);
+    let curLvl = db.fetch(`level_${user.id}`);
     let nxtLvlXp = curLvl * 500;
     let difference = nxtLvlXp - curXp;
 
     if (curLvl === null) curLvl = 0;
 
-message.reply(`You are level **${curLvl}** *(${curXp} XP)* and you need **${difference} XP** til next level up.`)
+message.channel.send(`${user} is level **${curLvl}** *(${curXp} XP)* and needs **${difference} XP** til next level up.`)
 
 }
 }

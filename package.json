@@ -1,6 +1,6 @@
 {
   "name": "raibot",
-  "version": "5.0 BETA",
+  "version": "5.0",
   "engines": {
     "node": "12.14.1"
   },

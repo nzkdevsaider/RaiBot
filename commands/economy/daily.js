@@ -32,7 +32,7 @@ run: async (client, message, args) => {
     const embed = new MessageEmbed()
     .setAuthor(`Daily Reward`, message.author.displayAvatarURL())
     .setColor(colours.yellow)
-    .setDescription(`Collected **${amount}**.`)
+    .setDescription(`Collected **${amount}** coins.`)
 
 message.channel.send(embed)
     }
