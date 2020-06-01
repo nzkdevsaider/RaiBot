@@ -1,4 +1,4 @@
-const { prefix } = require('../../botconfig.json');
+const { prefix } = require('../../config.json');
 const colours = require('../../colours.json');
 const Discord = require('discord.js');
 const moment = require('moment');

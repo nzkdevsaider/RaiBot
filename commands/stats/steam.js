@@ -1,9 +1,9 @@
-const { prefix } = require('../../botconfig.json');
+const { prefix } = require('../../config.json');
 const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch');
 const moment = require('moment');
-const { steamToken } = require('../../botconfig.json');
+const { steamToken } = require('../../config.json');
 const { stripIndents } = require('common-tags');
 
 module.exports = {

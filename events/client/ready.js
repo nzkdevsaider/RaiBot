@@ -1,4 +1,4 @@
-const { prefix, nodes } = require('../../botconfig.json');
+const { prefix, nodes } = require('../../config.json');
 const { version } = require('../../package.json');
 const moment = require('moment');
 const { ErelaClient, Utils } = require('erela.js');

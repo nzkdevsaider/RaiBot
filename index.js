@@ -1,4 +1,4 @@
-const { token, prefix } = require('./botconfig.json');
+const { token, prefix } = require('./config.json');
 const { Client, Collection, MessageEmbed, MessageCollector } = require('discord.js');
 const client = new Client()
 const moment = require('moment');

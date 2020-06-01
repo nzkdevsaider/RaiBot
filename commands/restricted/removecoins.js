@@ -1,4 +1,4 @@
-const { prefix, ownerId } = require('../../botconfig.json');
+const { prefix, ownerId } = require('../../config.json');
 const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
 const db = require('quick.db');

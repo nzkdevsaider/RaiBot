@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const colours = require('../../colours.json');
-const { prefix, ownerId } = require('../../botconfig.json');
+const { prefix, ownerId } = require('../../config.json');
 const moment = require('moment');
 const { version } = require('../../package.json');
 const { stripIndents } = require('common-tags');

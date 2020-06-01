@@ -1,4 +1,4 @@
-const { prefix } = require('../../botconfig.json');
+const { prefix } = require('../../config.json');
 
 module.exports = async (bot, message) => {
     if (message.author.bot || message.channel.type === 'dm') return;

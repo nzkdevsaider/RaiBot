@@ -1,4 +1,4 @@
-const { prefix, email, password } = require('../../botconfig.json');
+const { prefix, email, password } = require('../../config.json');
 const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
 const r6 = require('r6api.js');
