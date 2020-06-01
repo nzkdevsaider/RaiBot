@@ -1,3 +1,5 @@
+![](https://i.imgur.com/7hCHYgr.png)
+
 <p align="center">
     <a href="https://github.com/Raiwex/RaiBot/commits/master"><img src="https://img.shields.io/github/last-commit/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
     <a href="https://github.com/Raiwex/RaiBot/commits/master"><img src="https://img.shields.io/github/commit-activity/m/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
@@ -9,7 +11,9 @@
 # RaiBot
 RaiBot is multi-purpose Discord bot made in *[Node.js](https://nodejs.org/en/)* using *[Discord.js](https://discord.js.org/#/)* library.
 
-## RaiBot is still in development and frequently updated. Not online 24/7.
+RaiBot is still in development and frequently updated. Not online 24/7.
+
+I won't mind if you take some code to learn or improve but please don't be a skid.
 
 ### Features
 - Currency system
