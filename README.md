@@ -1,6 +1,5 @@
-![](https://i.imgur.com/7hCHYgr.png)
-
 <p align="center">
+<img src="https://i.imgur.com/vLqQhse.png">
     <a href="https://github.com/Raiwex/RaiBot/commits/master"><img src="https://img.shields.io/github/last-commit/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
     <a href="https://github.com/Raiwex/RaiBot/commits/master"><img src="https://img.shields.io/github/commit-activity/m/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
     <a href="https://github.com/Raiwex/RaiBot/issues"><img src="https://img.shields.io/github/issues/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
