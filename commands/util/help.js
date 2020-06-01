@@ -36,7 +36,6 @@ run: async (client, message, args) => {
 
     const randomAd = ads[Math.floor(Math.random() * ads.length)];
 
- 
     const embed = new MessageEmbed()
     .setAuthor(`${client.user.username} Help ✨`, client.user.displayAvatarURL())
     .setColor(colours.default)
