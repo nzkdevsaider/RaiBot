@@ -6,7 +6,7 @@ const db = require('quick.db');
 module.exports = {
     config: {
     name: 'level',
-    description: 'Displays your level',
+    description: 'Displays user\'s level',
     usage: `${prefix}level`,
     category: 'economy',
     access: 'everyone',
@@ -15,16 +15,29 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    let user = message.mentions.users.first() || client.users.cache.find(user => user.username === args[0]) || message.author;
+    if (!message.mentions.users.size) {
 
-    let curXp =  db.fetch(`xp_${user.id}`);
-    let curLvl = db.fetch(`level_${user.id}`);
-    let nxtLvlXp = curLvl * 500;
-    let difference = nxtLvlXp - curXp;
+        let myCurXp =  db.fetch(`xp_${message.author.id}`);
+        let myCurLvl = db.fetch(`level_${message.author.id}`);
+        let myNxtLvlXp = myCurLvl * 500;
+        let myDifference = myNxtLvlXp - myCurXp;
+    
+        if (myCurLvl === null) myCurLvl = 0;
+    
+    message.reply(`You are level **${myCurLvl}** *(${myCurXp} XP)* and you need **${myDifference} XP** til next level up.`)
+    } else {
 
-    if (curLvl === null) curLvl = 0;
+        let user = message.mentions.users.first()
 
-message.channel.send(`${user} is level **${curLvl}** *(${curXp} XP)* and needs **${difference} XP** til next level up.`)
+        let curXp =  db.fetch(`xp_${user.id}`);
+        let curLvl = db.fetch(`level_${user.id}`);
+        let nxtLvlXp = curLvl * 500;
+        let difference = nxtLvlXp - curXp;
+    
+        if (curLvl === null) curLvl = 0;
+    
+    message.channel.send(`${user} is level **${curLvl}** *(${curXp} XP)* and needs **${difference} XP** til next level up.`)
+    }
 
 }
 }

@@ -7,7 +7,7 @@ const ms = require('ms');
 module.exports = {
     config: {
     name: 'daily',
-    description: 'Collects your daily reward',
+    description: 'Allows you to collect your daily reward',
     usage: `${prefix}daily`,
     category: 'economy',
     access: 'everyone'
