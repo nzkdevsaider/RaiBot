@@ -5,9 +5,9 @@ const db = require('quick.db');
 
 module.exports = {
     config: {
-    name: 'coins',
+    name: 'balance',
     description: 'Displays your balance',
-    usage: `${prefix}coins`,
+    usage: `${prefix}balance`,
     category: 'economy',
     access: 'everyone',
     aliases: ['bal']

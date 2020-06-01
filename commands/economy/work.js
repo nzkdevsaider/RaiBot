@@ -16,7 +16,7 @@ module.exports = {
 run: async (client, message, args) => {
 
     const jobs = [
-        'constructor', 'prostitute', 'programmer', 'streamer', 'youtuber', 'witcher'
+        'constructor', 'programmer', 'streamer', 'youtuber', 'witcher', 'scientist', 'cook'
     ]
 
     const randomJob = jobs[Math.floor(Math.random() * jobs.length)];
