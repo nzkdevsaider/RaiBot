@@ -16,11 +16,7 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    let user = message.mentions.users.first();	
-
-    if (!user) {
-        return message.reply('Please provide an user!')
-        };
+    let user = message.mentions.users.first() || client.users.cache.find(user => user.username === args[0]) || message.author;
 
     let trashcan = 'E:/RaiBot/assets/templates/trashcan.jpg'
 

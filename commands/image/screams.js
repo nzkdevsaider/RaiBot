@@ -16,13 +16,7 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    let user = message.mentions.users.first();	
-
-    if (!user) {
-        return message.reply('Please provide an user!')
-        };
-
-    let screams = 'E:/RaiBot/assets/templates/screams.jpg'
+    let user = message.mentions.users.first() || client.users.cache.find(user => user.username === args[0]) || message.author;
 
 	let background = await loadImage(screams);
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);

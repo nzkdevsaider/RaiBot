@@ -10,7 +10,7 @@ module.exports = client => {
 
     client.music = new ErelaClient(client, nodes)
     .on('nodeError', console.log)
-    .on('nodeConnect', () => console.log('Succesfully created a new Node.'))
+    .on('nodeConnect', () => console.log(`[${moment().format('M/D/YYYY h:mm a')}] Succesfully created a new Node.`))
     .on('queueEnd', player => {
         player.textChannel.send('Queue has ended.')
         return client.music.players.destroy(player.guild.id)
