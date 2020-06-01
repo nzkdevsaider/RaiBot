@@ -1,9 +1,9 @@
 <p align="center">
-    <a href="https://github.com/Raiwex/RaiBot/issues"><img src="https://img.shields.io/github/issues/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
     <a href="https://github.com/Raiwex/RaiBot/commits/master"><img src="https://img.shields.io/github/last-commit/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
-    <a href="https://github.com/Raiwex/RaiBot"><img src="https://img.shields.io/github/repo-size/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
     <a href="https://github.com/Raiwex/RaiBot/commits/master"><img src="https://img.shields.io/github/commit-activity/m/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
-    <a href="https://discord.gg/KD457qA"><img src="https://img.shields.io/discord/347876379645313024?color=%23E91E63&logo=Discord&style=for-the-badge"></a>
+    <a href="https://github.com/Raiwex/RaiBot/issues"><img src="https://img.shields.io/github/issues/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
+    <a href="https://github.com/Raiwex/RaiBot"><img src="https://img.shields.io/github/repo-size/Raiwex/RaiBot?color=%23E91E63&style=for-the-badge"></a>
+    <a href="https://discord.gg/KD457qA"><img src="https://img.shields.io/discord/347876379645313024?color=%23E91E63&style=for-the-badge"></a>
 </p>
 
 # RaiBot
