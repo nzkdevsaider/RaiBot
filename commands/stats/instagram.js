@@ -16,8 +16,6 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    let icon = 'E:/RaiBot/assets/icons/instagram.png'
-
     if (!args[0]) return message.reply('Please provide a username!')
 
     let url = `https://instagram.com/${args[0]}/?__a=1`
@@ -34,7 +32,7 @@ run: async (client, message, args) => {
 
     const embed = new MessageEmbed()
     .setColor(colours.default)
-    .setAuthor(account.username, icon)
+    .setAuthor(account.username, 'https://i.imgur.com/M6yBwxS.png')
     .setDescription(stripIndents`
     **Posts** ~ ${account.edge_owner_to_timeline_media.count}
     **Followers** ~ ${account.edge_followed_by.count}

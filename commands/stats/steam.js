@@ -17,8 +17,6 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    let icon = 'E:/RaiBot/assets/icons/steam.png'
-
     if (!args[0]) return message.reply('Please provide a nickname!');
     let url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${steamToken}&vanityurl=${args}`
 
@@ -40,7 +38,7 @@ run: async (client, message, args) => {
 
         const embed = new MessageEmbed()
         .setColor(colours.blue)
-        .setAuthor(personaname, icon)
+        .setAuthor(personaname, 'https://i.imgur.com/UqlUsxD.png')
         .setThumbnail(avatarfull)
         .setDescription(stripIndents`
         **Status** ~ ${state[personastate]}
