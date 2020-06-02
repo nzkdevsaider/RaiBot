@@ -16,8 +16,7 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    let user = message.mentions.users.first() || client.users.cache.find(user => user.username === args[0]) || message.author;
-    let member = message.guild.member(user)
+    let user = message.mentions.users.first() || message.author;
 
     function checkDays(date) {
         let now = new Date();

@@ -7,7 +7,7 @@ module.exports = {
     config: {
     name: 'balance',
     description: 'Displays user\'s balance',
-    usage: `${prefix}balance`,
+    usage: `${prefix}balance [user]`,
     category: 'economy',
     access: 'everyone',
     aliases: ['bal']

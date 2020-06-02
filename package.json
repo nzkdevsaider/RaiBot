@@ -36,6 +36,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Raiwex",
-  "license": "ISC"
+  "author": "Martin 'Raiwex' J."
 }

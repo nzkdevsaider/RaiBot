@@ -9,14 +9,14 @@ module.exports = {
     config: {
     name: 'trashcan',
     description: 'Funny',
-    usage: `${prefix}trashcan <user>`,
+    usage: `${prefix}trashcan [user]`,
     category: 'image',
     access: 'everyone'
 },
 
 run: async (client, message, args) => {
 
-    let user = message.mentions.users.first() || client.users.cache.find(user => user.username === args[0]) || message.author;
+    let user = message.mentions.users.first() || message.author;
 
     let trashcan = 'E:/RaiBot/assets/templates/trashcan.jpg'
 

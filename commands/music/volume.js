@@ -7,7 +7,7 @@ module.exports = {
     config: {
     name: 'volume',
     description: 'Adjusts the volume of the bot',
-    usage: `${prefix}volume <input>`,
+    usage: `${prefix}volume [number]`,
     category: 'music',
     access: 'everyone',
     aliases: ['vol']

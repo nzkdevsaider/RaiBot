@@ -7,7 +7,7 @@ module.exports = {
     config: {
     name: 'level',
     description: 'Displays user\'s level',
-    usage: `${prefix}level`,
+    usage: `${prefix}level [user]`,
     category: 'economy',
     access: 'everyone',
     aliases: ['lvl', 'xp']

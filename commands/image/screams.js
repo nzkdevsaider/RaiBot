@@ -9,14 +9,14 @@ module.exports = {
     config: {
     name: 'screams',
     description: 'Funny',
-    usage: `${prefix}screams <user>`,
+    usage: `${prefix}screams [user]`,
     category: 'image',
     access: 'everyone'
 },
 
 run: async (client, message, args) => {
 
-    let user = message.mentions.users.first() || client.users.cache.find(user => user.username === args[0]) || message.author;
+    let user = message.mentions.users.first() || message.author;
 
 	let background = await loadImage(screams);
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);

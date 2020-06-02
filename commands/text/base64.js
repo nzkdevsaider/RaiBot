@@ -9,7 +9,8 @@ module.exports = {
     description: 'RW5jb2RlcyBhbmQgZGVjb2RlcyBiYXNlNjQ=',
     usage: `${prefix}base64 <encode | decode> <text>`,
     category: 'text',
-    access: 'everyone'
+    access: 'everyone',
+    aliases: ['b64']
 },
 
 run: async (client, message, args) => {

@@ -9,8 +9,7 @@ module.exports = {
     description: 'Resets database',
     usage: `${prefix}reset`,
     category: 'restricted',
-    access: 'restricted',
-    aliases: ['rdb']
+    access: 'restricted'
 },
 
 run: async (client, message, args) => {
