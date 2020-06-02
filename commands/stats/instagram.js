@@ -32,8 +32,11 @@ run: async (client, message, args) => {
 
     const embed = new MessageEmbed()
     .setColor(colours.default)
-    .setAuthor(account.username, 'https://i.imgur.com/M6yBwxS.png')
+    .setAuthor('Instagram', 'https://i.imgur.com/M6yBwxS.png')
+    .setTitle(account.username)
     .setDescription(stripIndents`
+    **Name** ~ ${account.full_name ? account.full_name : "None"}
+    **Bio** ~ ${account.biography.length == 0 ? "None" : account.biography}
     **Posts** ~ ${account.edge_owner_to_timeline_media.count}
     **Followers** ~ ${account.edge_followed_by.count}
     **Following** ~ ${account.edge_follow.count}

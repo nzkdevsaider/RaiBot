@@ -30,8 +30,9 @@ run: async (client, message, args) => {
     }
 
     const embed = new MessageEmbed()
-    .setColor(colours.default)
-    .setAuthor(res.login, 'https://i.imgur.com/e4HunUm.png')
+    .setColor(colours.white)
+    .setAuthor('Github', 'https://i.imgur.com/e4HunUm.png')
+    .setTitle(res.login)
     .setDescription(stripIndents`
     **Name** ~ ${res.name}
     **Bio** ~ ${res.bio}

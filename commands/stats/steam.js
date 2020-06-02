@@ -10,7 +10,7 @@ module.exports = {
     config: {
     name: 'steam',
     description: 'Displays information about Steam account',
-    usage: `${prefix}steam <id>`,
+    usage: `${prefix}steam <custom url>`,
     category: 'stats',
     access: 'everyone'
 },
@@ -38,7 +38,8 @@ run: async (client, message, args) => {
 
         const embed = new MessageEmbed()
         .setColor(colours.blue)
-        .setAuthor(personaname, 'https://i.imgur.com/UqlUsxD.png')
+        .setAuthor('Steam', 'https://i.imgur.com/UqlUsxD.png')
+        .setTitle(personaname)
         .setThumbnail(avatarfull)
         .setDescription(stripIndents`
         **Status** ~ ${state[personastate]}

@@ -9,7 +9,7 @@ module.exports = {
     config: {
     name: 'rainbow6',
     description: 'Displays Rainbow Six Siege stats',
-    usage: `${prefix}rainbow6 <battletag> <region>`,
+    usage: `${prefix}rainbow6 <username> <platform> <region>`,
     category: 'stats',
     access: 'everyone',
     aliases: ['r6']
@@ -31,7 +31,7 @@ run: async (client, message, args) => {
 
     let player, platform, region;
 
-    if (!args[0]) return message.reply('Please provide a nickname!');
+    if (!args[0]) return message.reply('Please provide an username!');
     else player = args[0];
 
     args[1] && [ 'pc', 'xbox', 'ps4' ].includes(args[1].toLowerCase()) ? platform = platforms[args[1].toLowerCase()] : platform = platforms['pc'];
@@ -58,7 +58,8 @@ run: async (client, message, args) => {
 
     const embed = new MessageEmbed()
     .setColor(colours.blue)
-    .setAuthor(player.username, 'https://i.imgur.com/3bKqioi.png')
+    .setAuthor('Rainbow Six Siege', 'https://i.imgur.com/3bKqioi.png')
+    .setTitle(player.username)
     .setDescription(`Stats for the **${region}** region on **${platform}**`)
     .addField('Basic Info', stripIndents`
     **Level** ~ ${level} (${xp} xp)

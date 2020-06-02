@@ -8,7 +8,7 @@ module.exports = {
     config: {
     name: 'overwatch',
     description: 'Displays Overwatch stats',
-    usage: `${prefix}overwatch <battletag> <region>`,
+    usage: `${prefix}overwatch <username> <region>`,
     category: 'stats',
     access: 'everyone',
     aliases: ['ow']
@@ -16,22 +16,20 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    const regions = ['asia', 'us', 'eu']
+    let region = args[1]
 
-    const battletag = args[0]
-    const region = args[1]
+    if (!args[0]) return message.reply('Please provide an username!');
 
-    if (!battletag) return message.reply('Please provide a battletag!');
-    if (!region) return message.reply(`Please provide a region! \nValid regions: \`${regions.join(`\` | \``)}\``);
+    args[1] && [ 'asia', 'us', 'eu' ].includes(args[1].toLowerCase()) ? args[1] : region = 'eu';
 
-    if (args[1].toLowerCase() === 'asia' || args[1].toLowerCase() === 'us' || args[1].toLowerCase() === 'eu') {
-
-    const stats = await ow.getStat(battletag, region.toLowerCase(), 'pc')
-    if (!stats.name) return message.reply('Please provide a valid battletag!');
+    const stats = await ow.getStat(args[0], region.toLowerCase(), 'pc')
+    if (!stats.name) return message.reply('Please provide a valid username!');
 
     const embed = new MessageEmbed()
     .setColor(colours.orange)
-    .setAuthor(stats.name, 'https://i.imgur.com/LNbk1k0.png')
+    .setAuthor('Overwatch', 'https://i.imgur.com/LNbk1k0.png')
+    .setTitle(stats.name)
+    .setDescription(`Stats for the **${region.toUpperCase()}** region on **PC**`)
     .addField('Basic Info', stripIndents`
     **Level** ~ ${stats.level}
     **Prestige** ~ ${stats.prestige}
@@ -54,9 +52,6 @@ run: async (client, message, args) => {
     .setTimestamp()
 
 message.channel.send(embed)
-} else {
-    return message.reply(`Please provide a valid region! \nValid regions: \`${regions.join(`\` | \``)}\``);
-}
 
 }
 }
