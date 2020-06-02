@@ -1,16 +1,16 @@
 const { prefix } = require('../../config.json');
 const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
-const math = require('mathjs');
+const { evaluate }= require('mathjs');
 
 module.exports = {
     config: {
-    name: 'calculate',
+    name: 'math',
     description: 'Calculator',
     usage: `${prefix}calculate <mathematical operation>`,
     category: 'util',
     access: 'everyone',
-    aliases: ['calc']
+    aliases: ['calculate', 'calc']
 },
 
 run: async (client, message, args) => {
@@ -20,7 +20,7 @@ run: async (client, message, args) => {
 
     let resp;
     try {
-        resp = math.evaluate(args.join(' '));
+        resp = evaluate(args.join(' '));
     } catch (e) {
         return message.reply('Please input a valid mathematical operation!');
     }
