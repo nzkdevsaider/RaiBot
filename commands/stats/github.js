@@ -17,6 +17,8 @@ module.exports = {
 
 run: async (client, message, args) => {
 
+    let icon = 'E:/RaiBot/assets/icons/github.png'
+
     if (!args[0]) return message.reply('Please provide a username!')
 
     let url = `https://api.github.com/users/${args[0]}`
@@ -31,8 +33,8 @@ run: async (client, message, args) => {
 
     const embed = new MessageEmbed()
     .setColor(colours.default)
-    .setAuthor(res.login, res.avatar_url)
-    .addField('Basic Info', stripIndents`
+    .setAuthor(res.login, icon)
+    .setDescription(stripIndents`
     **Name** ~ ${res.name}
     **Bio** ~ ${res.bio}
     **Location** ~ ${res.location}
@@ -41,7 +43,6 @@ run: async (client, message, args) => {
     **Following** ~ ${res.following}
     **Repositories** ~ ${res.public_repos}
     **Created** ~ ${moment.utc(res.created_at).format('dddd, MMMM Do, YYYY')}
-    __[Link](${res.html_url})__
     `)
     .setURL(res.html_url)
     .setThumbnail(res.avatar_url)

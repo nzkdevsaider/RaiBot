@@ -16,6 +16,8 @@ module.exports = {
 
 run: async (client, message, args) => {
 
+    let icon = 'E:/RaiBot/assets/icons/overwatch.jpg'
+
     const regions = ['asia', 'us', 'eu']
 
     const battletag = args[0]
@@ -31,7 +33,7 @@ run: async (client, message, args) => {
 
     const embed = new MessageEmbed()
     .setColor(colours.orange)
-    .setAuthor(stats.name, stats.icon)
+    .setAuthor(stats.name, icon)
     .addField('Basic Info', stripIndents`
     **Level** ~ ${stats.level}
     **Prestige** ~ ${stats.prestige}

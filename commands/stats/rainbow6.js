@@ -17,6 +17,8 @@ module.exports = {
 
 run: async (client, message, args) => {
 
+    let icon = 'E:/RaiBot/assets/icons/rainbow6.jpg'
+
     const platforms = { 
         pc: 'UPLAY', 
         xbox: 'XBL', 
@@ -58,7 +60,7 @@ run: async (client, message, args) => {
 
     const embed = new MessageEmbed()
     .setColor(colours.blue)
-    .setAuthor(player.username, message.author.displayAvatarURL())
+    .setAuthor(player.username, icon)
     .setDescription(`Stats for the **${region}** region on **${platform}**`)
     .addField('Basic Info', stripIndents`
     **Level** ~ ${level} (${xp} xp)

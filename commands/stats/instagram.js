@@ -16,9 +16,11 @@ module.exports = {
 
 run: async (client, message, args) => {
 
+    let icon = 'E:/RaiBot/assets/icons/instagram.png'
+
     if (!args[0]) return message.reply('Please provide a username!')
 
-    const url = `https://instagram.com/${args[0]}/?__a=1`
+    let url = `https://instagram.com/${args[0]}/?__a=1`
         
     let res; 
 
@@ -28,17 +30,16 @@ run: async (client, message, args) => {
         return message.reply('I couldn\'t find that account!')
     }
 
-    const account = res.graphql.user
+    let account = res.graphql.user
 
     const embed = new MessageEmbed()
     .setColor(colours.default)
-    .setAuthor(account.username, account.profile_pic_url_hd)
-    .addField('Basic Info', stripIndents`
+    .setAuthor(account.username, icon)
+    .setDescription(stripIndents`
     **Posts** ~ ${account.edge_owner_to_timeline_media.count}
     **Followers** ~ ${account.edge_followed_by.count}
     **Following** ~ ${account.edge_follow.count}
     **Private** ~ ${account.is_private ? 'Yes 🔒' : 'No 🔓'}
-    __[Link](https://instagram.com/${account.username})__
     `)
     .setURL(account.external_url_linkshimmed)
     .setThumbnail(account.profile_pic_url_hd)

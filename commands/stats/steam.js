@@ -17,8 +17,10 @@ module.exports = {
 
 run: async (client, message, args) => {
 
+    let icon = 'E:/RaiBot/assets/icons/steam.png'
+
     if (!args[0]) return message.reply('Please provide a nickname!');
-    const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${steamToken}&vanityurl=${args}`
+    let url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${steamToken}&vanityurl=${args}`
 
     fetch(url).then(res => res.json()).then(body => {
         if (body.response.success === 42) return message.reply('I couldn\'t find that account!')
@@ -38,15 +40,14 @@ run: async (client, message, args) => {
 
         const embed = new MessageEmbed()
         .setColor(colours.blue)
-        .setAuthor(personaname, avatarfull)
+        .setAuthor(personaname, icon)
         .setThumbnail(avatarfull)
-        .addField('Basic Info', stripIndents`
+        .setDescription(stripIndents`
         **Status** ~ ${state[personastate]}
         **Country** ~ ${loccountrycode.toUpperCase()}
         **Created** ~ ${moment.utc(timecreated * 1000).format('dddd, MMMM Do, YYYY')}
         **VAC Bans** ~ ${NumberOfVACBans}
         **Game Bans** ~ ${NumberOfGameBans}
-        [Link](${profileurl})
         `)
         .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
         .setTimestamp()
