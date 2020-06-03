@@ -23,11 +23,11 @@ run: async (client, message, args) => {
     .setTimestamp()
 
     message.delete()
+
+    message.channel.send(embed).then(sentEmbed => {
+        sentEmbed.react('✅')
+        sentEmbed.react('❌')
+    })
     
-    let msg = await message.channel.send({embed});
-
-    await msg.react('✅'); 
-    await msg.react('❌');
-
 }
 }
