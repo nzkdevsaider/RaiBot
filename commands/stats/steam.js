@@ -10,7 +10,7 @@ module.exports = {
     config: {
     name: 'steam',
     description: 'Displays information about Steam account',
-    usage: `${prefix}steam <custom url>`,
+    usage: `${prefix}steam <custom id>`,
     category: 'stats',
     access: 'everyone'
 },

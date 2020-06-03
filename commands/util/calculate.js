@@ -6,8 +6,8 @@ const { evaluate }= require('mathjs');
 module.exports = {
     config: {
     name: 'math',
-    description: 'Calculator',
-    usage: `${prefix}calculate <mathematical operation>`,
+    description: 'Allows you to perform mathematical operations and convert units',
+    usage: `${prefix}calculate <input>`,
     category: 'util',
     access: 'everyone',
     aliases: ['calculate', 'calc']

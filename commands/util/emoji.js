@@ -8,8 +8,7 @@ module.exports = {
     description: 'Displays full resolution emoji image and it\'s download link',
     usage: `${prefix}emoji`,
     category: 'util',
-    access: 'everyone',
-    aliases: ['e']
+    access: 'everyone'
 },
 
 run: async (client, message, args) => {

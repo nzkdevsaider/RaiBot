@@ -7,8 +7,8 @@ const { stripIndents } = require('common-tags');
 module.exports = {
     config: {
     name: 'profile',
-    description: 'Displays your profile',
-    usage: `${prefix}profile`,
+    description: 'Displays user\'s profile',
+    usage: `${prefix}profile [user]`,
     category: 'utility',
     access: 'everyone',
     aliases: ['prf']
