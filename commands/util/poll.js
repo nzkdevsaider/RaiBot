@@ -5,7 +5,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     config: {
     name: 'poll',
-    description: 'Creates poll',
+    description: 'Allows you to create poll',
     usage: `${prefix}poll`,
     category: 'util',
     access: 'everyone'
@@ -16,10 +16,10 @@ run: async (client, message, args) => {
     if (!args.join(' ')) return message.reply('Please input a question!')
 
     const embed = new MessageEmbed()
-    .setColor(colours.magenta)
+    .setColor(colours.blue)
     .setAuthor(`Poll created by ${message.author.tag}`, message.author.displayAvatarURL())
     .setDescription(args.join(' '))
-    .setFooter('React to vote.')
+    .setFooter('React to vote')
     .setTimestamp()
 
     message.delete()
