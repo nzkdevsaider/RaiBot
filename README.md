@@ -27,7 +27,7 @@ I won't mind if you take some code to learn or improve but please don't be a ski
 - Frequent updates
 
 ### How do I add him to my server?
-Through [this link](https://discordapp.com/oauth2/authorize?&client_id=668244314718994465&scope=client&permissions=8).
+Through [this link](https://discord.com/oauth2/authorize?client_id=668244314718994465&scope=bot&permissions=8).
 
 ### I found a bug or I want to suggest a feature.
 Feel free to join [my server](https://discord.gg/KD457qA) or feel free to PM me, Raiwex#2711 on Discord.

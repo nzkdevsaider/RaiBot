@@ -23,7 +23,7 @@ run: async (client, message, args) => {
     .setColor(colours.default)
     .setDescription(stripIndents`
     **Owner** ~ ${owner.tag}
-    [Invite](https://discordapp.com/oauth2/authorize?&client_id=668244314718994465&scope=client&permissions=8) | [Server](https://discord.gg/KD457qA) | [Tip](https://ko-fi.com/raiwex) | [Subscribe](https://www.patreon.com/Raiwex)
+    [Invite](https://discord.com/oauth2/authorize?client_id=668244314718994465&scope=bot&permissions=8) | [Server](https://discord.gg/KD457qA) | [Tip](https://ko-fi.com/raiwex) | [Subscribe](https://www.patreon.com/Raiwex)
     `)
     .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
     .setTimestamp()
