@@ -17,9 +17,7 @@ run: async (client, message, args) => {
 
     if (!args[0]) return message.reply('Please input a hex code!')
     if (args[0].startsWith('#')) args[0] = args[0].slice(1)
-
-    let img = `https://www.colorhexa.com/${args[0]}.png`
-
+ 
     fetch(`http://www.thecolorapi.com/id?hex=${args[0]}`)
     .then(res => res.json())
     .then(body => {
@@ -28,7 +26,7 @@ run: async (client, message, args) => {
 
     const embed = new MessageEmbed()
     .setColor(body.hex.value)
-    .setAuthor('Colour Info', img) 
+    .setAuthor('Colour Info', `https://www.colourlovers.com/img/${args[0]}/200/200/Sminted.png`) 
     .setTitle(body.hex.value)
     .setDescription(stripIndents`
     **RGB** ~ ${body.rgb.value}
@@ -36,7 +34,7 @@ run: async (client, message, args) => {
     **HSV** ~ ${body.hsv.value}
     **CMYK** ~ ${body.cmyk.value}
     `)
-    .setThumbnail(img)
+    .setThumbnail(`https://www.colourlovers.com/img/${args[0]}/200/200/Sminted.png`)
     .setURL(`http://www.thecolorapi.com/id?format=html&hex=${body.hex.clean}`)
     .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
     .setTimestamp()
