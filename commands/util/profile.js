@@ -45,6 +45,8 @@ run: async (client, message, args) => {
         **Next Level** ~ ${myDifference} XP needed
         **XP** ~ ${myXp}
         **Coins** ~ ${myCoins}
+        **Messages Sent (GLOBAL)** ~ ${myMessagesSentGlobal}
+        **Messages Sent (GUILD)** ~ ${myMessagesSentGuild}
         `)
         .setThumbnail(message.author.displayAvatarURL())
         .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
@@ -78,6 +80,8 @@ run: async (client, message, args) => {
     **Next Level** ~ ${difference} XP needed
     **XP** ~ ${xp}
     **Coins** ~ ${coins}
+    **Messages Sent (GLOBAL)** ~ ${messagesSentGlobal}
+    **Messages Sent (GUILD)** ~ ${messagesSentGuild}
     `)
     .setThumbnail(user.displayAvatarURL())
     .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
