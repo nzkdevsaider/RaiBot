@@ -1,6 +1,7 @@
 const { prefix } = require('../../config.json');
 const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
+const { emojify } = require('../../functions.js');
 
 module.exports = {
     config: {
@@ -14,18 +15,6 @@ module.exports = {
 run: async (client, message, args) => {
 
     message.delete()
-
-    function emojify(str) {
-        if (typeof str === 'string') {
-            return Array.prototype.map.call(str, (e, i, a) => {
-                if (/[a-zA-Z]/.test(e)) {
-                    return ':regional_indicator_' + e.toLowerCase() + ':'
-                } else {
-                    return e;
-                }
-            }).join(' ');
-        }
-    }
 
     let textToEmojify = args.slice(0).join(' ')
     if (!textToEmojify) return message.reply('Please input a text to emojify!')

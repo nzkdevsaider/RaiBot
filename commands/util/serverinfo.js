@@ -3,6 +3,7 @@ const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
 const { stripIndents } = require('common-tags');
+const { checkDays } = require('../../functions.js');
 
 module.exports = {
     config: {
@@ -15,13 +16,6 @@ module.exports = {
 },
 
 run: async (client, message, args) => {
-
-    function checkDays(date) {
-        let now = new Date();
-        let diff = now.getTime() - date.getTime();
-        let days = Math.floor(diff / 86400000);
-        return days + (days == 1 ? ' day' : ' days') + ' ago';
-    }
 
     let region = {
         'brazil': ':flag_br: Brazil',

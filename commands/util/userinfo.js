@@ -3,6 +3,7 @@ const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
 const { stripIndents } = require('common-tags');
+const { checkDays } = require('../../functions.js');
 
 module.exports = {
     config: {
@@ -18,13 +19,6 @@ run: async (client, message, args) => {
 
     let user = message.mentions.users.first() || message.author;
 
-    function checkDays(date) {
-        let now = new Date();
-        let diff = now.getTime() - date.getTime();
-        let days = Math.floor(diff / 86400000);
-        return days + (days == 1 ? ' day' : ' days') + ' ago';
-    }
-    
     let clientYesNo = {
         'false': 'No',
         'true': 'Yes'

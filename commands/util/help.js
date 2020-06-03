@@ -3,6 +3,7 @@ const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
 const { readdirSync } = require('fs');
 const { stripIndents } = require('common-tags');
+const { contains, pad } = require('../../functions.js');
 
 module.exports = {
     config: {
@@ -66,20 +67,8 @@ return message.channel.send(embed)
     } else {
         const eEmbed = new MessageEmbed()
         const categories = ['actions', 'animals', 'economy', 'fun', 'image', 'mod', 'music', 'nsfw', 'restricted', 'stats', 'text', 'util']
-        
-        function contains(target, pattern){
-            var value = 0;
-            pattern.forEach(function(word){
-              value = value + target.includes(word);
-            });
-            return (value === 1)
-        }
-        
-if (contains(args[0].toLowerCase(), categories)) {
 
-    function pad(value, length) {
-        return (value.toString().length < length) ? pad(value+' ', length):value;
-    }
+if (contains(args[0].toLowerCase(), categories)) {
 
             const dir = client.commands.filter(c => c.config.category === args[0].toLowerCase())
             const embed = new MessageEmbed()
