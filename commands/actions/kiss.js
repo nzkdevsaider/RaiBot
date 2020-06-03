@@ -7,7 +7,7 @@ const neko = new client();
 module.exports = {
     config: {
     name: 'kiss',
-    description: 'Kisses someone',
+    description: 'Allows you to kiss someone',
     usage: `${prefix}kiss <user>`,
     category: 'actions',
     access: 'everyone'

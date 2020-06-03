@@ -7,7 +7,7 @@ const neko = new client();
 module.exports = {
     config: {
     name: 'tickle',
-    description: 'Tickles someone',
+    description: 'Allows you to tickle someone',
     usage: `${prefix}tickle <user>`,
     category: 'actions',
     access: 'everyone'
