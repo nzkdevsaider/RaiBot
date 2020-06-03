@@ -18,7 +18,6 @@ I won't mind if you take some code to learn or improve but please don't be a ski
 - Currency system
 - XP system
 - Fun commands
-- Image manipulation
 - Music
 - NSFW commands
 - Social & games stats

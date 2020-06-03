@@ -16,6 +16,8 @@ module.exports = {
 
 run: async (client, message, args) => {
 
+    let screams = 'E:/RaiBot/assets/templates/screams.jpg'
+
     let user = message.mentions.users.first() || message.author;
 
 	let background = await loadImage(screams);

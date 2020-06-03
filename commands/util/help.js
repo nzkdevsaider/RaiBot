@@ -22,7 +22,6 @@ run: async (client, message, args) => {
         'animals': colours.green,
         'economy': colours.blue,
         'fun': colours.red,
-        'image': colours.white,
         'mod': colours.yellow,
         'music': colours.pink,
         'nsfw': colours.default,
@@ -50,7 +49,6 @@ run: async (client, message, args) => {
         \`animals           :\` Woof
         \`economy           :\` Simple economy system
         \`fun               :\` Mostly entertainment
-        \`image             :\` Image generation with a memey twist
         \`mod               :\` Moderate your server
         \`music             :\` plug.dj for Discord
         \`nsfw              :\` 18+ zone
@@ -66,7 +64,7 @@ return message.channel.send(embed)
 
     } else {
         const eEmbed = new MessageEmbed()
-        const categories = ['actions', 'animals', 'economy', 'fun', 'image', 'mod', 'music', 'nsfw', 'restricted', 'stats', 'text', 'util']
+        const categories = ['actions', 'animals', 'economy', 'fun', 'mod', 'music', 'nsfw', 'restricted', 'stats', 'text', 'util']
 
 if (contains(args[0].toLowerCase(), categories)) {
 
