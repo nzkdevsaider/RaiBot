@@ -5,17 +5,18 @@ const randomPuppy = require('random-puppy');
 
 module.exports = {
     config: {
-    name: 'shiba',
+    name: 'dog',
     description: 'woof',
-    usage: `${prefix}shiba`,
-    category: 'animals',
-    access: 'everyone'
+    usage: `${prefix}dog`,
+    category: 'fun',
+    access: 'everyone',
+    aliases: ['woof']
 },
 
 run: async (client, message, args) => {
 
     const subReddits = [
-        'ShibaInu', 'shiba', 'shibe'
+        'woof_irl', 'dogpictures', 'dogswithjobs', 'dogmemes', 'corgi', 'corgis', 'BabyCorgis', 'husky', 'ShibaInu', 'shiba', 'shibe'
     ]
 
     const randomSub = subReddits[Math.floor(Math.random() * subReddits.length)];

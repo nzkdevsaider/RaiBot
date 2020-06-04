@@ -19,7 +19,6 @@ run: async (client, message, args) => {
 
     let colour = {
         'actions': colours.lime,
-        'animals': colours.green,
         'economy': colours.blue,
         'fun': colours.red,
         'mod': colours.yellow,
@@ -64,7 +63,7 @@ return message.channel.send(embed)
 
     } else {
         const eEmbed = new MessageEmbed()
-        const categories = ['actions', 'animals', 'economy', 'fun', 'mod', 'music', 'nsfw', 'restricted', 'stats', 'text', 'util']
+        const categories = ['actions', 'economy', 'fun', 'mod', 'music', 'nsfw', 'restricted', 'stats', 'text', 'util']
 
 if (contains(args[0].toLowerCase(), categories)) {
 
