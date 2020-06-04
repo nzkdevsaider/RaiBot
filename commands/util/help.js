@@ -45,7 +45,6 @@ run: async (client, message, args) => {
     if (!args[0]) {
         embed.addField('Command Categories', stripIndents`
         \`actions           :\` IRL Stuff
-        \`animals           :\` Woof
         \`economy           :\` Simple economy system
         \`fun               :\` Mostly entertainment
         \`mod               :\` Moderate your server
