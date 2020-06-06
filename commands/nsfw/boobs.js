@@ -2,7 +2,6 @@ const { prefix } = require('../../config.json');
 const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch');
-const { contains } = require('../../functions.js');
 
 module.exports = {
     config: {
@@ -22,43 +21,34 @@ run: async (client, message, args) => {
         'boobies', 'boobs', 'tits', 'cleavage', 'TinyTits'
     ]
 
-    const sort = [
-        '?hot'
-    ]
-
     const randomSub = subReddits[Math.floor(Math.random() * subReddits.length)];
 
-    const randomSort = sort[Math.floor(Math.random() * sort.length)];
+    let msg = await message.channel.send('Fetching image...')
 
-    let msg = await message.channel.send("Fetching image...")
+    const res = await fetch(
+      `https://www.reddit.com/r/${randomSub}.json?sort=top&t=week`
+    );
+    const { data } = await res.json();
 
-    fetch(`https://www.reddit.com/r/${randomSub}.json${randomSort}`)
-    .then(res => res.json())
-    .then(body => {
+    const safe = message.channel.nsfw ? data.children : data.children.filter((post) => post.data.is_video = false);
+    if (!safe.length) return message.channel.send('I couldn\'t fetch the image!')
 
-    const whitelist = [
-        'jpg', 'png', 'jpeg'
-    ]
-
-    const allowed = message.channel.nsfw ? body.data.children : body.data.children.filter(post => contains(post.data.url, whitelist));
-    const random = Math.floor(Math.random() * allowed.length)
-
-    if (!allowed.length) return message.reply('**I can\'t reach Reddit!** Try again.');
+    const post = safe[Math.floor(Math.random() * safe.length)];
 
     const embed = new MessageEmbed()
-    .setColor(colours.pink)
-    .setTitle(`From /r/${randomSub}`)
-    .setImage(allowed[random].data.url)
-    .setURL(`https://www.reddit.com${allowed[random].data.permalink}`)
+    .setColor(colours.blue)
+    .setTitle(`${post.data.title}`)
+    .setDescription(`👍 ${post.data.ups} | 💬 ${post.data.num_comments}`)
+    .setImage(post.data.url)
+    .setURL(`https://www.reddit.com${post.data.permalink}`)
     .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
     .setTimestamp()
-
-message.channel.send(embed).then(sentEmbed => {
-    sentEmbed.react('⬆️')
-    sentEmbed.react('⬇️')
-})
-msg.delete()
-})
+    
+    message.channel.send(embed).then(sentEmbed => {
+        sentEmbed.react('⬆️')
+        sentEmbed.react('⬇️')
+    })
+    msg.delete()
 
 }
 }
