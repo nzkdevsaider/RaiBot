@@ -1,11 +1,19 @@
 {
   "name": "raibot",
-  "version": "5.0",
+  "version": "5.0.0",
+  "description": "Multi-purpose Discord bot",
+  "author": "Martin 'Raiwex' J.",
+  "main": "index.js",
   "engines": {
     "node": "12.14.1"
   },
-  "description": "Multi-purpose Discord bot made by Raiwex#2711",
-  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raiwex/RaiBot.git"
+  },
   "dependencies": {
     "async": "^3.2.0",
     "canvas": "^2.6.1",
@@ -31,10 +39,6 @@
     "request": "^2.88.0",
     "wait": "^0.1.0",
     "weather-js": "^2.0.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Martin 'Raiwex' J."
+  }
 }
+
