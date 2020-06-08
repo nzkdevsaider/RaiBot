@@ -17,20 +17,9 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    let colour = {
-        'actions': colours.lime,
-        'economy': colours.blue,
-        'fun': colours.red,
-        'mod': colours.yellow,
-        'music': colours.pink,
-        'nsfw': colours.default,
-        'stats': colours.magenta,
-        'text': colours.blue,
-        'util': colours.blue
-    };
-
     const ads = [
-        `Do you have a suggestion? Found a bug? Feel free to join [my server](https://discord.gg/KD457qA)`, `Do you like my commands? [Add me to your server](https://discord.com/oauth2/authorize?client_id=668244314718994465&scope=bot&permissions=8)`
+        `Do you have a suggestion? Found a bug? Feel free to join [my server](https://discord.gg/KD457qA)`, `Do you like my commands? [Add me to your server](https://discord.com/oauth2/authorize?client_id=668244314718994465&scope=bot&permissions=8)`,
+        `I also have repository on [GitHub](https://discord.gg/KD457qA)`,
     ]
 
     const randomAd = ads[Math.floor(Math.random() * ads.length)];
@@ -44,7 +33,7 @@ run: async (client, message, args) => {
 
     if (!args[0]) {
         embed.addField('Command Categories', stripIndents`
-        \`actions           :\` IRL Stuff
+        \`actions           :\` IRL stuff
         \`economy           :\` Simple economy system
         \`fun               :\` Mostly entertainment
         \`mod               :\` Moderate your server

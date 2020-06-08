@@ -25,7 +25,7 @@ run: async (client, message, args) => {
     **Owner** ~ ${owner.tag}
     **Invite** ~ [Invite Link](https://discord.com/oauth2/authorize?client_id=668244314718994465&scope=bot&permissions=8)
     **Support** ~ [Support Server](https://discord.gg/KD457qA)
-    **Tip** ~ [Ko-Fi](https://ko-fi.com/raiwex)
+    **Tip** ~ [Ko-fi](https://ko-fi.com/raiwex)
     **Repository** ~ [GitHub](https://github.com/Raiwex/RaiBot)
     `)
     .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())

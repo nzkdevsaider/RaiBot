@@ -7,7 +7,7 @@ module.exports = {
     config: {
     name: 'math',
     description: 'Allows you to perform mathematical operations and convert units',
-    usage: `${prefix}calculate <input>`,
+    usage: `${prefix}math <input>`,
     category: 'util',
     access: 'everyone',
     aliases: ['calculate', 'calc']

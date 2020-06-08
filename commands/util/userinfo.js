@@ -19,7 +19,7 @@ run: async (client, message, args) => {
 
     let user = message.mentions.users.first() || message.author;
 
-    let clientYesNo = {
+    let botYesNo = {
         'false': 'No',
         'true': 'Yes'
     }
@@ -38,7 +38,7 @@ run: async (client, message, args) => {
     .addField('Advanced Info', stripIndents`
     **Status** ~ ${user.presence.status.charAt(0).toUpperCase() +user.presence.status.slice(1).toLowerCase()}
     **Game** ~ ${user.presence.game ? user.presence.game.name : 'None'}
-    **Bot** ~ ${clientYesNo[user.bot]}
+    **Bot** ~ ${botYesNo[user.bot]}
     `)
     .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
     .setTimestamp()
