@@ -28,8 +28,8 @@ run: async (client, message, args) => {
     .setAuthor(`${server.name} Shop`, server.iconURL())
     .setColor(colours.default)
     .addField('Shop Selection', stripIndents`
-    **[1]** [**2500** C] ~ VIP Role in ${server.name}
-    **[2]** [**5000** C] ~ VIP+ Role in ${server.name}
+    **[1]** [**2500** C] ~ VIP Role in **${server.name}** server
+    **[2]** [**5000** C] ~ VIP+ Role in **${server.name}** server
 
     To buy an item use \`r!shop <item number>\`
     `)
