@@ -10,6 +10,7 @@ module.exports = {
     usage: `${prefix}pay <user> <amount>`,
     category: 'economy',
     access: 'everyone',
+    aliases: ['give']
 },
 
 run: async (client, message, args) => {

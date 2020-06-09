@@ -41,7 +41,7 @@ run: async (client, message, args) => {
 
     if (args[0] === '1') {
 
-        if (message.guild.id !== server.id) return message.reply(`You need to be in ${server.name} to buy this!`)
+        if (message.guild.id !== server.id) return message.reply(`You need to be in **${server.name}** server to buy this!`)
         if (message.member.roles.cache.has(vipRole.id)) return message.reply(`You already have this role!`)
 
         if (coins < 2500) {
@@ -58,7 +58,7 @@ run: async (client, message, args) => {
 
     if (args[0] === '2') {
 
-        if (message.guild.id !== server.id) return message.reply(`You need to be in ${server.name} to buy this!`)
+        if (message.guild.id !== server.id) return message.reply(`You need to be in **${server.name}** server to buy this!`)
         if (message.member.roles.cache.has(vip2Role.id)) return message.reply(`You already have this role!`)
 
         if (coins < 5000) {
