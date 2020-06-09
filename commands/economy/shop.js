@@ -11,6 +11,7 @@ module.exports = {
     usage: `${prefix}shop [number]`,
     category: 'economy',
     access: 'everyone',
+    aliases: ['store']
 },
 
 run: async (client, message, args) => {

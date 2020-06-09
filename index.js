@@ -53,12 +53,12 @@ if (!message.author.bot) {
 
 if (!message.author.bot) {
 
-  let coinAmt = Math.floor(Math.random() * 30) + 1;
-  let baseAmt = Math.floor(Math.random() * 30) + 1;
+  let coinAmt = Math.floor(Math.random() * 100) + 1;
+  let baseAmt = Math.floor(Math.random() * 100) + 1;
 
   if (coinAmt === baseAmt) {
-    db.add(`coins_${message.author.id}`, coinAmt)
-    message.channel.send(`Congrats, ${message.author}! ${coinAmt} coins were added to your balance.`)
+    db.add(`coins_${message.author.id}`, coinAmt / 2)
+    message.channel.send(`Congrats, ${message.author}! **${coinAmt}** coins were added to your balance.`)
     };
   }
 });
