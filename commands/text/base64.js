@@ -7,7 +7,7 @@ module.exports = {
     config: {
     name: 'base64',
     description: 'RW5jb2RlcyBhbmQgZGVjb2RlcyBiYXNlNjQ=',
-    usage: `${prefix}base64 <encode | decode> <text>`,
+    usage: `${prefix}base64 <option> <text>`,
     category: 'text',
     access: 'everyone',
     aliases: ['b64']

@@ -5,17 +5,18 @@ const fetch = require('node-fetch');
 
 module.exports = {
     config: {
-    name: 'food',
-    description: 'Makes you hungry',
-    usage: `${prefix}food`,
+    name: 'dog',
+    description: 'woof',
+    usage: `${prefix}dog`,
     category: 'fun',
-    access: 'everyone'
+    access: 'everyone',
+    aliases: ['woof']
 },
 
 run: async (client, message, args) => {
 
     const subReddits = [
-        'food', 'FoodPorn'
+        'woof_irl', 'dogpictures', 'dogswithjobs', 'dogmemes', 'corgi', 'corgis', 'BabyCorgis', 'husky', 'ShibaInu', 'shiba', 'shibe'
     ]
 
     const randomSub = subReddits[Math.floor(Math.random() * subReddits.length)];

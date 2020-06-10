@@ -5,6 +5,7 @@ const moment = require('moment');
 const { version } = require('../../package.json');
 const { readdirSync } = require('fs');
 const { stripIndents } = require('common-tags');
+const { duration } = require('../../functions.js');
 
 module.exports = {
     config: {
@@ -16,22 +17,6 @@ module.exports = {
 },
 
 run: async (client, message, args) => {
-
-
-    function duration(ms) {
-        let sec = Math.floor((ms / 1000) % 60).toString()
-        let min = Math.floor((ms / (1000 * 60)) % 60).toString()
-        let hrs = Math.floor((ms / (1000 * 60 * 60)) %60).toString()
-        let days = Math.floor((ms / (1000 * 60 * 60 * 24)) % 60).toString()
-        return `${days.padStart(1, `0`)} days, ${hrs.padStart(2, `0`)} hours, ${min.padStart(2, `0`)} minutes, ${sec.padStart(2, `0`)} seconds.`
-    }
-
-    function checkDays(date) {
-        let now = new Date();
-        let diff = now.getTime() - date.getTime();
-        let days = Math.floor(diff / 86400000);
-        return days + (days == 1 ? ' day' : ' days') + ' ago';
-    }
 
     const categories = readdirSync('./commands/')
 

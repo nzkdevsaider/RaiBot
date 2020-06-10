@@ -31,6 +31,7 @@ run: async (client, message, args) => {
 
     const embed = new MessageEmbed()
     .setAuthor(`Daily Reward`, message.author.displayAvatarURL())
+    .setTitle(message.author.username)
     .setColor(colours.yellow)
     .setDescription(`Collected **${amount}** coins.`)
 

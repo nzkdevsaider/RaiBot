@@ -7,7 +7,7 @@ const neko = new client();
 module.exports = {
     config: {
     name: 'poke',
-    description: 'Pokes someone',
+    description: 'Allows you to poke someone',
     usage: `${prefix}poke <user>`,
     category: 'actions',
     access: 'everyone'

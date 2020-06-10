@@ -14,13 +14,13 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    if (!args) message.reply('Please input a song!')
+    if (!args) return message.reply('Please input a song!')
 
     fetch(`https://some-random-api.ml/lyrics?title=${args.join('-')}`)
     .then(res => res.json())
     .then(body => {
 
-    if (body.error) message.reply('I couldn\'t find that song\'s lyrics!')
+    if (body.error) return message.reply('I couldn\'t find that song\'s lyrics!')
 
     const embed = new MessageEmbed()
     .setColor(colours.blue)

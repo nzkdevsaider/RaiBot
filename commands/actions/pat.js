@@ -7,7 +7,7 @@ const neko = new client();
 module.exports = {
     config: {
     name: 'pat',
-    description: 'Pats someone',
+    description: 'Allows you to pat someone',
     usage: `${prefix}pat <user>`,
     category: 'actions',
     access: 'everyone',

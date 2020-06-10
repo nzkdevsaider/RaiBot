@@ -3,6 +3,7 @@ const colours = require('../../colours.json');
 const { MessageEmbed } = require('discord.js');
 const { readdirSync } = require('fs');
 const { stripIndents } = require('common-tags');
+const { contains, pad } = require('../../functions.js');
 
 module.exports = {
     config: {
@@ -16,22 +17,9 @@ module.exports = {
 
 run: async (client, message, args) => {
 
-    let colour = {
-        'actions': colours.lime,
-        'animals': colours.green,
-        'economy': colours.blue,
-        'fun': colours.red,
-        'image': colours.white,
-        'mod': colours.yellow,
-        'music': colours.pink,
-        'nsfw': colours.default,
-        'stats': colours.magenta,
-        'text': colours.blue,
-        'util': colours.blue
-    };
-
     const ads = [
-        `Do you have a suggestion? Found a bug? Feel free to join [my server](https://discord.gg/KD457qA)`, `Do you like my commands? [Add me to your server](https://discord.com/oauth2/authorize?client_id=668244314718994465&scope=bot&permissions=8)`
+        `Do you have a suggestion? Found a bug? Feel free to join [my server](https://discord.gg/KD457qA)`, `Do you like my commands? [Add me to your server](https://discord.com/oauth2/authorize?client_id=668244314718994465&scope=bot&permissions=8)`,
+        `I also have repository on [GitHub](https://discord.gg/KD457qA)`,
     ]
 
     const randomAd = ads[Math.floor(Math.random() * ads.length)];
@@ -45,11 +33,9 @@ run: async (client, message, args) => {
 
     if (!args[0]) {
         embed.addField('Command Categories', stripIndents`
-        \`actions           :\` IRL Stuff
-        \`animals           :\` Woof
+        \`actions           :\` IRL stuff
         \`economy           :\` Simple economy system
         \`fun               :\` Mostly entertainment
-        \`image             :\` Image generation with a memey twist
         \`mod               :\` Moderate your server
         \`music             :\` plug.dj for Discord
         \`nsfw              :\` 18+ zone
@@ -65,21 +51,9 @@ return message.channel.send(embed)
 
     } else {
         const eEmbed = new MessageEmbed()
-        const categories = ['actions', 'animals', 'economy', 'fun', 'image', 'mod', 'music', 'nsfw', 'restricted', 'stats', 'text', 'util']
-        
-        function contains(target, pattern){
-            var value = 0;
-            pattern.forEach(function(word){
-              value = value + target.includes(word);
-            });
-            return (value === 1)
-        }
-        
-if (contains(args[0].toLowerCase(), categories)) {
+        const categories = ['actions', 'economy', 'fun', 'mod', 'music', 'nsfw', 'restricted', 'stats', 'text', 'util']
 
-    function pad(value, length) {
-        return (value.toString().length < length) ? pad(value+' ', length):value;
-    }
+if (contains(args[0].toLowerCase(), categories)) {
 
             const dir = client.commands.filter(c => c.config.category === args[0].toLowerCase())
             const embed = new MessageEmbed()

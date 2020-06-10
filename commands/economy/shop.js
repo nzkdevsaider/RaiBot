@@ -11,6 +11,7 @@ module.exports = {
     usage: `${prefix}shop [number]`,
     category: 'economy',
     access: 'everyone',
+    aliases: ['store']
 },
 
 run: async (client, message, args) => {
@@ -27,8 +28,8 @@ run: async (client, message, args) => {
     .setAuthor(`${server.name} Shop`, server.iconURL())
     .setColor(colours.default)
     .addField('Shop Selection', stripIndents`
-    **[1]** [**2500** C] ~ VIP Role in ${server.name}
-    **[2]** [**5000** C] ~ VIP+ Role in ${server.name}
+    **[1]** [**2500** C] ~ VIP Role in **${server.name}** server
+    **[2]** [**5000** C] ~ VIP+ Role in **${server.name}** server
 
     To buy an item use \`r!shop <item number>\`
     `)
@@ -40,7 +41,7 @@ run: async (client, message, args) => {
 
     if (args[0] === '1') {
 
-        if (message.guild.id !== server.id) return message.reply(`You need to be in ${server.name} to buy this!`)
+        if (message.guild.id !== server.id) return message.reply(`You need to be in **${server.name}** server to buy this!`)
         if (message.member.roles.cache.has(vipRole.id)) return message.reply(`You already have this role!`)
 
         if (coins < 2500) {
@@ -57,7 +58,7 @@ run: async (client, message, args) => {
 
     if (args[0] === '2') {
 
-        if (message.guild.id !== server.id) return message.reply(`You need to be in ${server.name} to buy this!`)
+        if (message.guild.id !== server.id) return message.reply(`You need to be in **${server.name}** server to buy this!`)
         if (message.member.roles.cache.has(vip2Role.id)) return message.reply(`You already have this role!`)
 
         if (coins < 5000) {
